@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 16:41:50 by tkenji-u          #+#    #+#             */
-/*   Updated: 2025/07/30 16:59:22 by tkenji-u         ###   ########.fr       */
+/*   Created: 2025/07/31 14:57:38 by tkenji-u          #+#    #+#             */
+/*   Updated: 2025/07/31 15:09:48 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
-
-int main(void)
+int	print_usigned(unsigned int n)
 {
-	int ret1, ret2;
-
-	ret1 = printf("Original: Hello %s %d\n", "world", 42);
-	ret2 = ft_printf("Custom : Hello %s %d\n", "world", 42);
-
-	printf("Ret printf: %d | Ret ft_printf: %d\n", ret1, ret2);
-	return (0);
+	char	c;
+	int		count;
+	
+	if(n >= 0 && n < 10)
+	{
+		c = n + '0';
+		return (write(1, &c, 1));
+	} 
+	else
+	{
+		count = count + print_usigned(n / 10);
+		c = n % 10 + '0';
+		
+	}
 }
