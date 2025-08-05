@@ -3,56 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   print_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thiagouemura <thiagouemura@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:31:41 by tkenji-u          #+#    #+#             */
-/*   Updated: 2025/07/31 15:00:12 by tkenji-u         ###   ########.fr       */
+/*   Updated: 2025/08/01 16:45:51 by thiagouemur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	get_nbr_len(int n);
-
-static int	get_nbr_len(int n)
-{
-	size_t	len;
-
-	if (n <= 0)
-		len = 1;
-	else
-		len = 0;
-	while (n)
-	{
-		n /= 10;
-		len ++;
-	}
-	return (len);
-}
-
 int	print_number(int nbr)
 {
-	char	*buf;
-	int		len;
-	long	nb;
-	int		total;
+	long	n;
+	int		count;
+	char	c;
 
-	nb = nbr;
-	len = get_nbr_len(nb);
-	buf = malloc(len + 1);
-	if (nb == 0)
-		buf[--len] = '0';
-	if (nb < 0)
+	n = nbr;
+	count = 0;
+	if (n == 0)
 	{
-		buf[0] = '-';
-		nb = -nb;
+		c = '0';
+		return (write(1, &c, 1));
 	}
-	while (nb > 0)
+	if (n < 0)
 	{
-		buf[--len] = nb % 10 + '0';
-		nb /= 10;
+		count += write(1, "-", 1);
+		n = -n;
 	}
-	total = write(1, buf, get_nbr_len(nbr));
-	free(buf);
-	return (total);
+	if (n >= 10)
+		count += print_number(n / 10);
+	c = n % 10 + '0';
+	count += write(1, &c, 1);
+	return (count);
 }
