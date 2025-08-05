@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thiagouemura <thiagouemura@student.42.f    +#+  +:+       +#+         #
+#    By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/30 16:28:40 by tkenji-u          #+#    #+#              #
-#    Updated: 2025/08/01 15:25:51 by thiagouemur      ###   ########.fr        #
+#    Updated: 2025/08/05 16:33:11 by tkenji-u         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,10 @@ SRC =	ft_print.c		\
 		print_char.c	\
 		print_string.c	\
 		print_number.c	\
+		print_usigned.c	\
 		print_hex.c		\
+		print_pointer.c
+		
 
 OBJ = $(SRC:.C=.O)
 

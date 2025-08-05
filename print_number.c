@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thiagouemura <thiagouemura@student.42.f    +#+  +:+       +#+        */
+/*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:31:41 by tkenji-u          #+#    #+#             */
-/*   Updated: 2025/08/01 16:45:51 by thiagouemur      ###   ########.fr       */
+/*   Updated: 2025/08/05 14:37:59 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ int	print_number(int nbr)
 
 	n = nbr;
 	count = 0;
-	if (n == 0)
-	{
-		c = '0';
-		return (write(1, &c, 1));
-	}
 	if (n < 0)
 	{
 		count += write(1, "-", 1);

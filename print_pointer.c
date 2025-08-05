@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_unsigned.c                                   :+:      :+:    :+:   */
+/*   print_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 14:57:38 by tkenji-u          #+#    #+#             */
-/*   Updated: 2025/08/05 17:00:19 by tkenji-u         ###   ########.fr       */
+/*   Created: 2025/08/05 13:35:38 by tkenji-u          #+#    #+#             */
+/*   Updated: 2025/08/05 17:18:43 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_unsigned(unsigned int n)
+int	print_pointer(void *ptr)
 {
-	char	c;
-	int		count;
+	unsigned long	address;
+	int				count;
 
+	if (!ptr)
+		return (write(1, "(nil)", 5));
 	count = 0;
-	if (n == 0)
-	{
-		c = '0';
-		return (write(1, &c, 1));
-	}
-	if (n >= 10)
-		count += print_usigned(n / 10);
-	c = n % 10 + '0';
-	count += write(1, &c, 1);
+	address = (unsigned long)ptr;
+	count += write(1, "0x", 2);
+	count += print_hex(address, 0);
 	return (count);
 }
