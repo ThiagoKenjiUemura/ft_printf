@@ -6,7 +6,7 @@
 #    By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/30 16:28:40 by tkenji-u          #+#    #+#              #
-#    Updated: 2025/08/05 16:33:11 by tkenji-u         ###   ########.fr        #
+#    Updated: 2025/08/07 15:25:35 by tkenji-u         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,16 @@ NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC =	ft_print.c		\
-		print_char.c	\
+SRC =	print_char.c	\
 		print_string.c	\
 		print_number.c	\
-		print_usigned.c	\
+		print_unsigned.c	\
 		print_hex.c		\
-		print_pointer.c
+		print_pointer.c	\
+		ft_printf.c		
 		
 
-OBJ = $(SRC:.C=.O)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 

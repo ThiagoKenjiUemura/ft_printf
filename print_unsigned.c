@@ -6,7 +6,7 @@
 /*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 14:57:38 by tkenji-u          #+#    #+#             */
-/*   Updated: 2025/08/05 17:00:19 by tkenji-u         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:25:58 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	print_unsigned(unsigned int n)
 		return (write(1, &c, 1));
 	}
 	if (n >= 10)
-		count += print_usigned(n / 10);
+		count += print_unsigned(n / 10);
 	c = n % 10 + '0';
 	count += write(1, &c, 1);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 16:53:52 by tkenji-u          #+#    #+#             */
-/*   Updated: 2025/08/05 18:32:05 by tkenji-u         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:48:12 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	check_format(char format, va_list args)
 	else if (format == 'X')
 		return (print_hex(va_arg(args, unsigned int), 1));
 	else if (format == 'p')
-		return (print_pointer((unsigned long)va_arg(args, void *)));
+		return (print_pointer(va_arg(args, void *)));
 	return (0);
 }
 
@@ -42,7 +42,7 @@ int	ft_printf(const char *format, ...)
 	count = 0;
 	while (*format)
 	{
-		if (format == '%')
+		if (*format == '%')
 		{
 			format++;
 			count += check_format(*format, args);

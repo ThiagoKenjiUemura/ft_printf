@@ -6,13 +6,13 @@
 /*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:20:58 by thiagouemur       #+#    #+#             */
-/*   Updated: 2025/08/05 18:30:57 by tkenji-u         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:42:16 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_hex(unsigned int n, int uppercase)
+int	print_hex(unsigned long n, int uppercase)
 {
 	char	*base;
 	char	c;
